@@ -20,6 +20,8 @@ npm install evue -S
  import App from './App.vue';
  
  Vue.use(EVue);
+ 
+ Vue.use(EVue);
      new Vue({
      el: '#app',
      render: h => h(App)
