@@ -1,0 +1,21 @@
+.e-vue-upload {
+  .e-vue-upload-box {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+  .e-vue-card {
+    background-color: #fbfdff;
+    border: 1px dashed #c0ccda;
+    border-radius: 6px;
+    box-sizing: border-box;
+    width: 148px;
+    height: 148px;
+    cursor: pointer;
+    line-height: 146px;
+    vertical-align: top;
+    display: inline-block;
+    text-align: center;
+    outline: none;
+  }
+}

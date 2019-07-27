@@ -1,0 +1,36 @@
+.e-vue-form {
+
+  .el-col {
+    .e-vue-must {
+      .el-form-item__label {
+        &:before {
+          content: '*';
+          color: #f56c6c;
+          margin-right: 4px;
+        }
+      }
+    }
+  }
+  .e-vue-childen {
+    display: flex;
+    text-align: left;
+    > div {
+      margin-right: 10px;
+      .el-form-item__content {
+        width: 100%;
+      }
+    }
+    .el-input {
+      width: auto;
+    }
+    .e-vue-inline {
+      display: inline-block;
+      margin-right: 30px;
+    }
+  }
+  .evue-form-title {
+    padding: 10px;
+    background-color: #f8f8f8;
+    margin-bottom: 20px;
+  }
+}
