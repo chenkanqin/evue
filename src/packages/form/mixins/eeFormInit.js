@@ -61,6 +61,7 @@ export const eeFormInit = {
           routerPath: () => import('../packages/upload/index.vue'),
         },
       ],
+      specialComponent: () => import('../packages/special/index/index.vue'),//路由地址,
     };
   },
 };

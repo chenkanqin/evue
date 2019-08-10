@@ -1,14 +1,7 @@
 <template>
   <!--级联选择器-->
   <div class="e-cascader" v-if="option">
-    <!--
-      前面追加文本
-      addPreClass 添加class
-       addPreStyle 添加style
-       addPre 添加文本
-      -->
-    <slot name="addPre"></slot>
-    <!--前面追加文本-->
+    <eAddPreEnd :addPre="true" :option="option"></eAddPreEnd>
     <el-cascader
             v-model="obj[option.model]"
             :options="option.list"
@@ -34,14 +27,7 @@
             @remove-tag="removeTag"
     >
     </el-cascader>
-    <!--
-      后面追加文本
-      addPreClass 添加class
-      addPreStyle 添加style
-      addPre 添加文本
-  -->
-    <slot name="addEnd"></slot>
-    <!--end 后面追加文本-->
+    <eAddPreEnd :addEnd="true" :option="option"></eAddPreEnd>
     <slot :name="option.slotName"></slot>
     <e-desc :option="option"></e-desc>
   </div>

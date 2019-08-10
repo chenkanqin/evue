@@ -5,10 +5,6 @@ export default {
   name: 'evueForm',
   mixins: [eeFormInit],
   props: {
-    refDom: {//表单的form ref
-      type: String,
-      default: 'eleForm',
-    },
     option: {//所有数据结构
       type: Object,
       default: () => {
@@ -26,11 +22,12 @@ export default {
     prop: 'obj',
   },
   data() {
-    return {}
+    return {
+      copyObj: {},
+      isStartResetFields: false,//是否开始重置
+    }
   },
-  components: {
-    // allForm,
-  },
+  components: {},
   watch: {
     obj: {
       deep: true,
@@ -44,6 +41,7 @@ export default {
     }
   },
   mounted() {
+    // this.copyObj = JSON.parse(JSON.stringify(this.obj));
     this.initData(this.option.column);
   },
   methods: {
@@ -141,7 +139,7 @@ export default {
     },
     //点击保存
     submitBtn() {
-      this.$refs[this.refDom].validate((valid) => {
+      this.$refs.eVueForm.validate((valid) => {
         if (valid) {
           this.$emit('submit', {
             status: 1,
@@ -176,7 +174,7 @@ export default {
      * */
     emptyBtn() {
       /*对整个表单进行重置，将所有字段值重置为初始值并移除校验结果*/
-      this.$refs[this.refDom].resetFields();
+      this.resetFields();
       this.$emit('emptyChange');
     },
     /**
@@ -187,26 +185,27 @@ export default {
      * props: array | string
      * */
     clearValidate(props) {
-      this.$refs[this.refDom].clearValidate(props);
+      this.$refs.eVueForm.clearValidate(props);
     },
     /**
      * 对部分表单字段进行校验的方法
      * props: array | string
      * */
     validateField(props, callback) {
-      this.$refs[this.refDom].validateField(props, callback);
+      this.$refs.eVueForm.validateField(props, callback);
     },
     /**
      * 对整个表单进行重置，将所有字段值重置为初始值并移除校验结果
      * */
     resetFields() {
-      this.$refs[this.refDom].resetFields();
+      this.$refs.eVueForm.resetFields();
+      this.isStartResetFields = !this.isStartResetFields;
     },
     /**
      * 对整个表单进行校验的方法，参数为一个回调函数。
      * */
     validate(callback) {
-      this.$refs[this.refDom].validate(callback);
+      this.$refs.eVueForm.validate(callback);
     },
   }
 }

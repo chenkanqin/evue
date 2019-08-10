@@ -15,9 +15,14 @@ export const eeFormChildrenInit = {
       type: Number,
       default: ''
     },
+    isStartResetFields: {
+      type: Boolean,
+      default: false
+    },
   },
   components: {
     eDesc: () => import('../packages/desc/index.vue'),
+    eAddPreEnd: () => import('../packages/addPreEnd/index.vue'),
   },
   model: {
     prop: 'obj',

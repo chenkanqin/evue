@@ -1,7 +1,7 @@
 <template>
   <!--当选项过多时，使用下拉菜单展示并选择内容。-->
   <div class="e-select" v-if="option">
-    <slot name="addPre"></slot>
+    <eAddPreEnd :addPre="true" :option="option"></eAddPreEnd>
 
     <el-select
             v-if="option.isGroup"
@@ -104,7 +104,8 @@
       </el-option>
 
     </el-select>
-    <slot name="addEnd"></slot>
+
+    <eAddPreEnd :addEnd="true" :option="option"></eAddPreEnd>
     <slot :name="option.slotName"></slot>
     <e-desc :option="option"></e-desc>
   </div>

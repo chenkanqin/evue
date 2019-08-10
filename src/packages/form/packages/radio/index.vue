@@ -5,7 +5,8 @@
          :key="radioIndex"
          :style="option.style"
     >
-      <slot name="addPre"></slot>
+      <eAddPreEnd :addPre="true" :option="option"></eAddPreEnd>
+
       <el-radio
               :size="option.size"
               :disabled="option.disabled || radioItem.disabled"
@@ -62,7 +63,8 @@
           </div>
         </div>
       </el-radio>
-      <slot name="addEnd"></slot>
+
+      <eAddPreEnd :addEnd="true" :option="option"></eAddPreEnd>
       <slot :name="option.slotName"></slot>
       <slot v-if="obj[option.model] === radioItem.value" :name="radioItem.slotName"></slot>
     </div>

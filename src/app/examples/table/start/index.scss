@@ -1,0 +1,32 @@
+.e-table-start {
+  font-size: 12px;
+  color: #606266;
+
+  .el-table .cell,
+  p {
+    font-size: 12px !important;
+  }
+
+  .goods {
+    display: flex;
+
+    img {
+      width: 60px;
+      height: 60px;
+    }
+
+    .goodsName {
+      flex: 1;
+      padding-top: 5px;
+
+      p {
+        color: #38f;
+        cursor: pointer;
+      }
+
+      span {
+        color: #f60;
+      }
+    }
+  }
+}

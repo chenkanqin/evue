@@ -1,7 +1,8 @@
 <template>
   <!--用于颜色选择，支持多种格式。-->
   <div class="e-colorPicker" v-if="option">
-    <slot name="addPre"></slot>
+    <eAddPreEnd :addPre="true" :option="option"></eAddPreEnd>
+
     <el-color-picker
             v-model="obj[option.model]"
             :disabled="option.disabled"
@@ -14,7 +15,8 @@
             @change="change"
             @active-change="activeChange"
     ></el-color-picker>
-    <slot name="addEnd"></slot>
+
+    <eAddPreEnd :addEnd="true" :option="option"></eAddPreEnd>
     <slot :name="option.slotName"></slot>
     <e-desc :option="option"></e-desc>
   </div>

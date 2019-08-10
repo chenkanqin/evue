@@ -2,6 +2,7 @@
   <!--通过鼠标或键盘输入字符-->
   <div class="e-input" v-if="option">
     <slot name="addPre"></slot>
+    <eAddPreEnd :addPre="true" :option="option"></eAddPreEnd>
     <el-input
             v-model="obj[option.model]"
             :disabled="option.disabled"
@@ -45,7 +46,8 @@
       </template>
 
     </el-input>
-    <slot name="addEnd"></slot>
+
+    <eAddPreEnd :addEnd="true" :option="option"></eAddPreEnd>
     <slot :name="option.slotName"></slot>
     <e-desc :option="option"></e-desc>
   </div>

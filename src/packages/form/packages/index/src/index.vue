@@ -2,8 +2,7 @@
   <div class="e-vue-form" v-if="option">
 
     <el-form
-            :data-ref="refDom"
-            :ref="refDom"
+            ref="eVueForm"
             :model="obj"
             :label-width="option.labelWidth ? String(option.labelWidth) : 'auto'"
             :disabled="option.disabled"
@@ -48,51 +47,27 @@
                     v-for="(childItem,childIndex) in item.children" :key="childIndex"
             >
               <div
-                      :is="componentLists.find(x=>x.type === childItem.type) ? componentLists.find(x=>x.type === childItem.type) .routerPath : ''"
+                      :is="componentLists.find(x=>x.type === childItem.type) ? componentLists.find(x=>x.type === childItem.type).routerPath : childItem.slotName?specialComponent:''"
                       :option="childItem"
                       v-model="obj"
                       :currentIndex="index"
+                      :isStartResetFields="isStartResetFields"
                       @upload-filesAdded="uploadFilesAdded"
                       @upload-beforeUpload="uploadBeforeUpload"
                       @upload-uploadProgress="uploadUploadProgress"
                       @upload-fileUploaded="uploadFileUploaded"
                       @upload-error="uploadError"
               >
-
-                <!--
-                  前面追加文本
-                  addPreClass 添加class
-                   addPreStyle 添加style
-                   addPre 添加文本
-                 -->
-                <template slot="addPre">
-                   <span v-if="childItem.addPre" :class="childItem.addPreClass"
-                         :style="childItem.addPreStyle">{{childItem.addPre}}</span>
-                </template>
-                <!--前面追加文本-->
-                <!--
-                   后面追加文本
-                   addPreClass 添加class
-                   addPreStyle 添加style
-                   addPre 添加文本
-                -->
-                <template slot="addEnd">
-                   <span v-if="childItem.addEnd" :class="childItem.addEndClass"
-                         :style="childItem.addEndStyle">{{childItem.addEnd}}</span>
-                </template>
-                <!--end 后面追加文本-->
                 <!--自定义slot-->
                 <template :slot="childItem.slotName">
                   <slot :name="childItem.slotName"></slot>
                 </template>
                 <!--end自定义slot-->
                 <!--判断是否含有data.length-->
-
                 <template :slot="slotNameFormDataItem.slotName"
                           v-for="slotNameFormDataItem in childItem.slotNameFormData">
                   <slot :name="slotNameFormDataItem.slotName"></slot>
                 </template>
-
                 <!--input的特殊梳理-->
                 <template :slot="childItem.prependSlot">
                   <slot :name="childItem.prependSlot"></slot>

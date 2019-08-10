@@ -1,7 +1,7 @@
 <template>
   <!--一组备选项中进行多选-->
   <div class="e-checkbox" v-if="option">
-    <slot name="addPre"></slot>
+    <eAddPreEnd :addPre="true" :option="option"></eAddPreEnd>
 
     <!--el-checkbox-button-->
     <el-checkbox-group
@@ -66,7 +66,8 @@
     </el-checkbox>
 
 
-    <slot name="addEnd"></slot>
+
+    <eAddPreEnd :addEnd="true" :option="option"></eAddPreEnd>
     <slot :name="option.slotName"></slot>
     <e-desc :option="option"></e-desc>
   </div>

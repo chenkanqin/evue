@@ -22,6 +22,12 @@ export default {
             {}
           ]
         },
+        {
+          title: '表格',
+          includesKey: 'table',
+          key: '2',
+          routerName: 'table-start',
+        },
       ],
     }
   },

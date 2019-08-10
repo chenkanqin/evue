@@ -5,9 +5,11 @@
         <img src="@/assets/home.png" class="home-logo" alt="">
         <h1>数据驱动视图工具</h1>
         <p>模仿有赞商城后台，二次封装Element的form组件，数据驱动视图，提高工作效率。</p>
-        <p style="color: #679fce;font-size: 14px;">第二期将上线的功能：table组件</p>
+        <p style="color: #679fce;font-size: 14px;"><i style="color:#f07178;margin-right: 10px;font-size: 20px;"
+                                                      class="el-icon-check"></i>第二期将上线的功能：table组件</p>
         <p style="color: #679fce;font-size: 14px;">第三期将上线的功能：比较全面的微页面组件</p>
         <a href="/#/form/start" class="nav-link action-button">快速上手 →</a>
+        <a href="http://www.evue.top/" style="margin-left: 10px;" class="nav-link action-button">文档阅读 →</a>
       </div>
     </div>
     <div class="items">

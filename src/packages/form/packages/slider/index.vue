@@ -1,14 +1,8 @@
 <template>
   <!--通过拖动滑块在一个固定区间内进行选择-->
   <div class="e-slider" v-if="option">
-    <!--
-      前面追加文本
-      addPreClass 添加class
-       addPreStyle 添加style
-       addPre 添加文本
-      -->
-    <slot name="addPre"></slot>
-    <!--前面追加文本-->
+    <eAddPreEnd :addPre="true" :option="option"></eAddPreEnd>
+
     <el-slider
             v-model="obj[option.model]"
             :disabled="option.disabled"
@@ -34,14 +28,8 @@
     >
 
     </el-slider>
-    <!--
-      后面追加文本
-      addPreClass 添加class
-      addPreStyle 添加style
-      addPre 添加文本
-  -->
-    <slot name="addEnd"></slot>
-    <!--end 后面追加文本-->
+
+    <eAddPreEnd :addEnd="true" :option="option"></eAddPreEnd>
     <slot :name="option.slotName"></slot>
     <e-desc :option="option"></e-desc>
   </div>

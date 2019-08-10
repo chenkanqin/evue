@@ -1,7 +1,8 @@
 <template>
   <!--用于选择或输入日期。-->
   <div class="e-timePicker" v-if="option">
-    <slot name="addPre"></slot>
+    <eAddPreEnd :addPre="true" :option="option"></eAddPreEnd>
+
     <!--obj[option.model]-->
     <el-time-picker
             v-if="option.eleType === 'timePicker'"
@@ -20,7 +21,7 @@
             :popper-class="option.popperClass"
             :picker-options="option.pickerOptions"
             :range-separator="option.rangeSeparator"
-            :valuevue-format="option.valueFormat || 'yyyy/MM/dd  HH:mm:ss'"
+            :value-format="option.valueFormat || 'yyyy/MM/dd  HH:mm:ss'"
             :default-value="option.defaultValue"
             :prefix-icon="option.prefixIcon"
             :clear-icon="option.clearIcon"
@@ -48,7 +49,7 @@
             :popper-class="option.popperClass"
             :picker-options="option.pickerOptions"
             :range-separator="option.rangeSeparator"
-            :valuevue-format="option.valueFormat || 'yyyy/MM/dd  HH:mm:ss'"
+            :value-format="option.valueFormat || 'yyyy/MM/dd  HH:mm:ss'"
             :default-value="option.defaultValue"
             :prefix-icon="option.prefixIcon"
             :clear-icon="option.clearIcon"
@@ -58,7 +59,8 @@
     >
     </el-time-select>
 
-    <slot name="addEnd"></slot>
+
+    <eAddPreEnd :addEnd="true" :option="option"></eAddPreEnd>
     <slot :name="option.slotName"></slot>
     <e-desc :option="option"></e-desc>
   </div>

@@ -1,2 +1,15 @@
 .e-vue-table {
+  .e-vue-pagination {
+    margin-top: 15px;
+    display: flex;
+  }
+
+  .e-vue-pagination-left {
+
+  }
+
+  .e-vue-pagination-right {
+    flex: 1;
+    text-align: right;
+  }
 }

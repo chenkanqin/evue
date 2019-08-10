@@ -1,7 +1,8 @@
 <template>
   <!--表示两种相互对立的状态间的切换，多用于触发「开/关」-->
   <div class="e-switch" v-if="option">
-    <slot name="addPre"></slot>
+    <eAddPreEnd :addPre="true" :option="option"></eAddPreEnd>
+
     <el-switch
             v-model="obj[option.model]"
             :disabled="option.disabled"
@@ -20,7 +21,8 @@
             @change="change"
     >
     </el-switch>
-    <slot name="addEnd"></slot>
+
+    <eAddPreEnd :addEnd="true" :option="option"></eAddPreEnd>
     <slot :name="option.slotName"></slot>
     <e-desc :option="option"></e-desc>
   </div>

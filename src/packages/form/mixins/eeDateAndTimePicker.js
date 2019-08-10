@@ -9,15 +9,35 @@ export const eeDateAndTimePicker = {
   },
   watch: {
     /**监听时间选择的变化*/
-    timeVal(val) {
-      if (val) {
-        this.isRange();
+    timeVal() {
+      this.isRange();
+    },
+    isStartResetFields() {
+      this.timeVal = '';
+    },
+    obj: {
+      deep: true,
+      handler(val) {
+        if (this.option.model && this.option.model.includes('&')) {
+          let fields = this.option.model.split('&');
+          if (!val[fields[0]]) {
+            this.timeVal = '';
+          }
+        } else {
+          if (!val[this.option.model]) {
+            this.timeVal = '';
+          }
+        }
+        this.isRange(true);
       }
     },
   },
+  mounted() {
+    this.isRange(true);
+  },
   methods: {
     /**判断是否为是否为时间范围选择 只对timePicker有效*/
-    isRange() {
+    isRange($isFirst = false) {
       /**是否需要判断 & 结果为数组的形式*/
       let isPass = true;
       if (this.isTimePickerComponent) {
@@ -26,18 +46,25 @@ export const eeDateAndTimePicker = {
         isPass = (this.option && (this.option.eleType === 'datetimerange' || this.option.eleType === 'daterange'));
       }
       if (isPass) {
-        console.log(1);
         if (this.option.model && this.option.model.includes('&')) {
-          console.log(2);
           let fields = this.option.model.split('&');
-          this.obj[fields[0]] = this.timeVal[0];
-          this.obj[fields[1]] = this.timeVal[1];
+          if ($isFirst) {//初始化
+            this.timeVal = [this.obj[fields[0]], this.obj[fields[1]]];
+          } else {
+            this.obj[fields[0]] = this.timeVal && this.timeVal.length ? this.timeVal[0] : '';
+            this.obj[fields[1]] = this.timeVal && this.timeVal.length ? this.timeVal[1] : '';
+          }
         } else {
-          console.log(3);
-          this.obj[this.option.model] = this.timeVal;
+          this.setVal($isFirst);
         }
       } else {
-        console.log(4);
+        this.setVal($isFirst);
+      }
+    },
+    setVal($isFirst) {
+      if ($isFirst) {
+        this.timeVal = this.obj[this.option.model] || '';
+      } else {
         this.obj[this.option.model] = this.timeVal;
       }
     },
