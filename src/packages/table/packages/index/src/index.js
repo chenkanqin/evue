@@ -135,7 +135,7 @@ export default {
     },
     //用于单选表格，设定某一行为选中行，如果调用时不加参数，则会取消目前高亮行的选中状态。
     setCurrentRow(row) {
-      this.$refs.eVueTable.toggleRowExpansion(row);
+      this.$refs.eVueTable.setCurrentRow(row);
     },
     //不传入参数时用于清空所有过滤条件，数据会恢复成未过滤的状态，也可传入由columnKey组成的数组以清除指定列的过滤条件
     clearFilter(columnKey) {

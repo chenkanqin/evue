@@ -84,12 +84,12 @@
         <!--v-show·="option.submitBtn && option.emptyBtn"-->
         <el-col :span="24" :style="{'text-align': option.menuAlign}">
           <div class="e-vue-form-menu">
-            <el-button :type="option.submitType" v-if="option.submitBtn" @click="submitBtn"
+            <el-button :type="option.submitType" v-if="option.submitBtn" @click="submit"
                        :size=" option.submitSize || option.size  || 'small'">
               {{option.submitTxt ||
               '保存'}}
             </el-button>
-            <el-button :type="option.emptyType" v-if="option.emptyBtn" @click="emptyBtn"
+            <el-button :type="option.emptyType" v-if="option.emptyBtn" @click="empty"
                        :size="option.emptySize || option.size  || 'small'">
               {{option.emptyTxt ||
               '清空'}}

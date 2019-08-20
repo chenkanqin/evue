@@ -59,7 +59,7 @@
         <div>
           <slot name="empty"
                 v-if="$slots.empty"></slot>
-          <div v-else :desc="option.emptyText || '暂无数据'"></div>
+          <div v-else>{{option.emptyText || '暂无数据'}}</div>
         </div>
       </template>
 
@@ -72,7 +72,7 @@
               :index="option.indexMethod"
               :width="option.indexWidth || config.indexWidth"
               :fixed="option.indexFixed"
-              :align="option.indexAlign"
+              :align="option.indexAlign/shop/goods-share"
       >
       </el-table-column>
       <!--end 序号区域-->
@@ -208,7 +208,7 @@
                     :current="option.paginationCurrent"
                     :size="option.paginationSize"
                     :total="option.paginationTotal">
-                    :pageSizes="option.paginationPageSizes">
+          :pageSizes="option.paginationPageSizes">
         </pagination>
       </div>
     </div>

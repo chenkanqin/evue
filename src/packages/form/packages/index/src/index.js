@@ -82,7 +82,7 @@ export default {
     },
     /**初始化数据*/
     initData(childrenData) {
-      if (childrenData.length) {
+      if (childrenData && childrenData.length) {
         childrenData.map(res => {
           this.cardingInitData(res);
           if (res.children && res.children.length) {
@@ -138,7 +138,7 @@ export default {
       });
     },
     //点击保存
-    submitBtn() {
+    submit() {
       this.$refs.eVueForm.validate((valid) => {
         if (valid) {
           this.$emit('submit', {
@@ -172,7 +172,7 @@ export default {
     /**
      * 还原数据
      * */
-    emptyBtn() {
+    empty() {
       /*对整个表单进行重置，将所有字段值重置为初始值并移除校验结果*/
       this.resetFields();
       this.$emit('emptyChange');
