@@ -72,7 +72,7 @@
               :index="option.indexMethod"
               :width="option.indexWidth || config.indexWidth"
               :fixed="option.indexFixed"
-              :align="option.indexAlign/shop/goods-share"
+              :align="option.indexAlign"
       >
       </el-table-column>
       <!--end 序号区域-->
