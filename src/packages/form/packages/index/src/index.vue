@@ -30,8 +30,9 @@
                 :pull="option.pull || item.pull"
                 :tag="option.tag || item.tag"
                 :offset="option.offset || item.offset"
-                :xs="option.xs || item.xs || 24"
-                :span="item.span?item.span>=24?24:item.span:24"
+                :xs="24"
+                :sm="24"
+                :lg="item.span?item.span>=24?24:item.span:24"
         >
           <div class="evue-form-title" v-if="item.title">{{item.title}}</div>
           <!--判断是否含有children-->
