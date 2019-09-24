@@ -1,0 +1,19 @@
+.e-checkbox {
+  &.slotNameFormData {
+    .el-checkbox__input {
+      vertical-align: super;
+    }
+
+    .el-checkbox__label {
+      vertical-align: top;
+    }
+  }
+
+  &.isBlock {
+    > .el-checkbox-group {
+      > .el-checkbox {
+        display: block;
+      }
+    }
+  }
+}

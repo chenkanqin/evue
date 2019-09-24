@@ -4,7 +4,7 @@ export default {
   name: 'form-checkbox',
   data() {
     return {
-      /**基础*/
+      /** 基础*/
       basics: {
         obj: {
           value: true,
@@ -23,7 +23,7 @@ export default {
           ]
         }
       },
-      /**禁用状态*/
+      /** 禁用状态*/
       disabled: {
         obj: {
           value: [2],
@@ -93,6 +93,69 @@ export default {
                 },
               ]
             },
+          ]
+        }
+      },
+
+      /** children状态*/
+      children: {
+        obj: {
+          value: []
+        },
+        option: {
+          column: [
+            {
+              children: [
+                {
+                  type: 'checkbox',
+                  model: 'value',
+                  isGroup: true,
+                  isBlock: true,
+                  slotNameFormData: [
+                    {
+                      slotName: 'one'
+                    },
+                    {
+                      slotName: 'two'
+                    },
+                  ],
+                  data: [
+                    {
+                      value: 1,
+                      label: '备选项1',
+                      slotName: 'one'
+                    },
+                    {
+                      value: 2,
+                      label: '备选项2',
+                      slotName: 'two',
+                      children: [ // 子选项
+                        {
+                          type: 'input',
+                          model: 'money',
+                          clearable: true,
+                          addEnd: '元',
+                          addEndStyle: 'margin-left:10px;',
+                        }
+                      ],
+                    },
+                    {
+                      value: 3,
+                      label: '备选项3',
+                      children: [ // 子选项
+                        {
+                          type: 'input',
+                          model: 'money',
+                          clearable: true,
+                          addEnd: '次',
+                          addEndStyle: 'margin-left:10px;',
+                        }
+                      ],
+                    },
+                  ],
+                },
+              ]
+            }
           ]
         }
       },
