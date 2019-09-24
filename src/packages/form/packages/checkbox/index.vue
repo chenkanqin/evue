@@ -46,6 +46,7 @@
               :size="item.size"
               :checked="item.checked"
               :indeterminate="item.indeterminate"
+              :class="{hasSlotName:item.slotName}"
       >
         {{option.defaultProps ? item[option.defaultProps.label]: item.label}}
         <div style="margin-top: 10px;margin-bottom: 10px;vertical-align: top" v-if="item.slotName">

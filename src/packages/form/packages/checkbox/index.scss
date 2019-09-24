@@ -1,11 +1,13 @@
 .e-checkbox {
   &.slotNameFormData {
-    .el-checkbox__input {
-      vertical-align: super;
-    }
+    .hasSlotName {
+      .el-checkbox__input {
+        vertical-align: super;
+      }
 
-    .el-checkbox__label {
-      vertical-align: top;
+      .el-checkbox__label {
+        vertical-align: top;
+      }
     }
   }
 
