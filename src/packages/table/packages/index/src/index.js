@@ -30,12 +30,37 @@ export default {
         expandWidth: 50,
         selectionWidth: 50,
       },
+      currentSelection: [], // 当前选择的
+      isCanChange: false, // 是否选择时可以改变了
     }
   },
   components: {
     pagination: () => import('../../pagination/index.vue'),
   },
-  watch: {},
+  watch: {
+    data: {
+      deep: true,
+      handler(list) {
+        /** selectionKey 选择模式翻页时选择唯一key  选择模式翻页时是否不清空之前选择的*/
+        this.isCanChange = false;
+        if (this.currentSelection.length && this.option.selectionKey) { // 判断当前是否有选中的
+          this.$nextTick(() => {
+            this.currentSelection.map((li, ind) => {
+              const $index = list.findIndex(x => x[this.option.selectionKey] === li[this.option.selectionKey]);
+              if ($index >= 0) {
+                this.$refs.eVueTable.toggleRowSelection(this.$refs.eVueTable.data[$index], true);
+              }
+              if (ind === this.currentSelection.length - 1) {
+                this.isCanChange = true;
+              }
+            });
+          })
+        } else {
+          this.isCanChange = true;
+        }
+      }
+    }
+  },
   mounted() {
   },
   methods: {
@@ -46,7 +71,26 @@ export default {
     },
     //当选择项发生变化时会触发该事件
     selectionChange(ev) {
-      this.$emit('selectionChange', ev);
+      let endSelectData = ev;
+      if (this.option.selectionKey) { // 只要在存在key的情况下才梳理
+        if (!this.isCanChange) return;
+        this.data.map(res => {
+          const $in = ev.find(x => x[this.option.selectionKey] === res[this.option.selectionKey]);
+          //是否存在被选中
+          const $selectionIndex = this.currentSelection.findIndex(x => x[this.option.selectionKey] === res[this.option.selectionKey]);
+          if ($in) { //当前选中
+            if ($selectionIndex < 0) {//不存在
+              this.currentSelection.push(res);
+            }
+          } else {//取消
+            if ($selectionIndex >= 0) {//存在
+              this.currentSelection.splice($selectionIndex, 1);
+            }
+          }
+        });
+        endSelectData = this.currentSelection;
+      }
+      this.$emit('selectionChange', endSelectData);
     },
     //当用户手动勾选数据行的 Checkbox 时触发的事件
     select(ev) {

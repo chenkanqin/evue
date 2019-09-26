@@ -207,8 +207,8 @@
         <pagination @paginationChance="paginationChance"
                     :current="option.paginationCurrent"
                     :size="option.paginationSize"
-                    :total="option.paginationTotal">
-          :pageSizes="option.paginationPageSizes">
+                    :total="option.paginationTotal"
+                    :pageSizes="option.paginationPageSizes">
         </pagination>
       </div>
     </div>
