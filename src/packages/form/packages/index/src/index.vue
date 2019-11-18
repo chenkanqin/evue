@@ -58,6 +58,7 @@
                       @upload-uploadProgress="uploadUploadProgress"
                       @upload-fileUploaded="uploadFileUploaded"
                       @upload-error="uploadError"
+                      @evueUploader="evueUploader"
               >
                 <!--自定义slot-->
                 <template :slot="childItem.slotName">
@@ -78,6 +79,7 @@
                 </template>
                 <!--end input的特殊梳理-->
               </div>
+              <slot :name="childItem.slotName"></slot>
             </el-form-item>
           </div>
           <slot :name="item.slotName"></slot>

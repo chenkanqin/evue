@@ -74,6 +74,12 @@ export default {
       this.$emit('upload-fileUploaded', res)
     },
     /**
+     * 暴露上传模块
+     * */
+    evueUploader(res) {
+      this.$emit('evueUploader', res)
+    },
+    /**
      * 上传模块
      * 上传错误信息回馈
      * */

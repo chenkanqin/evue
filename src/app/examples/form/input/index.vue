@@ -18,7 +18,9 @@
           <template v-slot:columnSlotName>
             我是 column 属性的插槽，你这里可以随便写哦
           </template>
-
+          <template v-slot:other>
+            我也是可以拥有标题
+          </template>
         </evue-form>
       </div>
     </div>

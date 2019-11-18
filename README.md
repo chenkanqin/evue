@@ -6,7 +6,7 @@
 
 
 #### 商城后台系统
-模仿有赞商城后台系统，请前往体验[http://admin.evue.top/](http://admin.evue.top/)。建议或者需要帮助的请联系：1125093590@qq.com
+模仿有赞商城后台系统，请前往体验[http://admin.evue.top/](http://admin.evue.top/)。建议或者需要帮助的请联系：2052021114@qq.com
 <p align="center"><a href="http://www.evue.top/" target="_blank" rel="noopener noreferrer"><img width="100%" src="http://qiniu.xxgushi.com/FpDOyrIn46pNbeZHt1uW2EZibSa9" alt="Evue logo"></a></p>
 ## 文档
 

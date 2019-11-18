@@ -122,19 +122,19 @@ export const upFiles = {
 
             //let $info = JSON.parse(info.response);
             ////console.log('up, file, info==', up, file, info);
-         /*   if ($info) {
-              if (option.upMaxLength === 1) {
-                this.endFiles = [$info.data];
-              } else {
-                this.endFiles.push($info.data);
-              }
-            }*/
+            /*   if ($info) {
+                 if (option.upMaxLength === 1) {
+                   this.endFiles = [$info.data];
+                 } else {
+                   this.endFiles.push($info.data);
+                 }
+               }*/
 
             this.$emit('upload-fileUploaded', {
               fun: up,
               file: file,
               info: info,
-             // endFiles: this.endFiles,
+              // endFiles: this.endFiles,
             });
           },
           Error: (up, err) => {
@@ -161,6 +161,7 @@ export const upFiles = {
 
       this.evueUploader = new plupload.Uploader(config);
       this.evueUploader.init();
+      this.$emit('evueUploader', this.evueUploader)
     },
     startUp() {
       if (!this.option.apiUrl) {

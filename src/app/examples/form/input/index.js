@@ -109,6 +109,14 @@ export default {
           {
             slotName: 'columnSlotName',
           },
+          {
+            children: [
+              {
+                itemLabel: '其他 :',
+                slotName: 'other',
+              },
+            ]
+          },
         ]
       }
     }
