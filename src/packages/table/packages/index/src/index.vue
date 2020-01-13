@@ -103,6 +103,7 @@
               :width="option.selectionWidth || config.selectionWidth"
               :fixed="option.selectionFixed"
               :align="option.selectionAlign"
+              :selectable="option.selectable"
       ></el-table-column>
       <!--end 多选区域-->
 
